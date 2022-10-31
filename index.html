@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Planets Facts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1 class="titel">the planets</h1>
+      <input type="checkbox" name="navigation" id="hamburger-btn" />
+      <label class="hamburger-label" for="hamburger-btn"> <i class="navigation-button fa-solid fa-bars"></i> </label>
+      <nav class="navigation">
+        <ul>
+          <li class="nav-item">
+            <i class="mercury fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="mercury" value="Mercury" checked />
+            <label for="mercury" class="nav-label">mercury</label>
+          </li>
+          <li class="nav-item">
+            <i class="venus fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="venus" value="Venus" />
+            <label for="venus" class="nav-label">venus</label>
+          </li>
+          <li class="nav-item">
+            <i class="earth fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="earth" value="Earth" />
+            <label for="earth" class="nav-label">earth</label>
+          </li>
+          <li class="mars nav-item">
+            <i class="fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="mars" value="Mars" />
+            <label for="mars" class="nav-label">mars</label>
+          </li>
+          <li class="nav-item">
+            <i class="jupiter fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="jupiter" value="Jupiter" />
+            <label for="jupiter" class="nav-label">jupiter</label>
+          </li>
+          <li class="nav-item">
+            <i class="saturn fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="saturn" value="Saturn" />
+            <label for="saturn" class="nav-label">saturn</label>
+          </li>
+          <li class="nav-item">
+            <i class="uranus fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="uranus" value="Uranus" />
+            <label for="uranus" class="nav-label">uranus</label>
+          </li>
+          <li class="nav-item">
+            <i class="neptune fa-solid fa-circle"></i>
+            <input class="planet-selector" type="radio" name="planet" id="neptune" value="Neptune" />
+            <label for="neptune" class="nav-label">neptune</label>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="planet-info-navigation">
+        <ul>
+          <li>
+            <input class="info-type-selector" type="radio" name="planet-info" id="overview" value="overview" checked />
+            <label for="overview" class="planet-info-label planet-info-label-overview"><span class="info-number">01</span>overview</label>
+          </li>
+          <li>
+            <input class="info-type-selector" type="radio" name="planet-info" id="structure" value="structure" />
+            <label for="structure" class="planet-info-label planet-info-label-structure"><span class="info-number">02</span>structure</label>
+          </li>
+          <li>
+            <input class="info-type-selector" type="radio" name="planet-info" id="surface" value="surface" />
+            <label for="surface" class="planet-info-label planet-info-label-surface"><span class="info-number">03</span>surface</label>
+          </li>
+        </ul>
+      </div>
+      <div class="planet-img-holder">
+        <img class="planet-img" src="./assets/planet-mercury.svg" alt="Planet picture" />
+        <img class="planet-internal hide" src="./assets/planet-mercury-internal.svg" alt="Planet internal picture" />
+        <img class="planet-surface hide" src="./assets/geology-mercury.png" alt="Sufarce of mercury" />
+      </div>
+      <div class="planet-infos-text">
+        <h2 class="planet-name">mercury</h2>
+        <p class="info">
+          Mercury is the smallest planet in the Solar System and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the Sun's planets. Mercury is one of four
+          terrestrial planets in the Solar System, and is a rocky body like Earth.
+        </p>
+        <p class="source">
+          Source: <span><a class="wikipedia-link" href="https://en.wikipedia.org/wiki/Mercury_(planet)">Wikipedia</a></span>
+          <img src="./assets/icon-source.svg" alt="Source icon" />
+        </p>
+      </div>
+      <div class="planet-infos-data">
+        <div class="data-wrap">
+          <h3 class="info-data-titel">rotation time</h3>
+          <p class="info-data rotation-data">58.6 Days</p>
+        </div>
+        <div class="data-wrap">
+          <h3 class="info-data-titel">revolution time</h3>
+          <p class="info-data revolution-data">87.97 Days</p>
+        </div>
+        <div class="data-wrap">
+          <h3 class="info-data-titel">radius</h3>
+          <p class="info-data radius-data">2,439.7 KM</p>
+        </div>
+        <div class="data-wrap">
+          <h3 class="info-data-titel">average temp.</h3>
+          <p class="info-data temp-data">430°c</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="./script.js" async defer></script>
+  </body>
+</html>
