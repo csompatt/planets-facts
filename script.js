@@ -23,7 +23,7 @@ fetchDatas();
 // ******* Hide the main part of body *****
 
 navigationButton.addEventListener('input', function () {
-  mainElement.classList.add('hide');
+  mainElement.classList.toggle('hide');
 });
 
 // ****** Add click function to the navigation elements
