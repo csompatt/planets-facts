@@ -1,34 +1,39 @@
-const bodyElement = document.querySelector('.body');
-const navigationButton = document.getElementById('hamburger-btn');
-const planetSelector = document.querySelectorAll('.planet-selector');
-const planetName = document.querySelector('.planet-name');
-const planetDescription = document.querySelector('.info');
-const descriptionSource = document.querySelector('.wikipedia-link');
-const rotationTime = document.querySelector('.rotation-data');
-const revolutionTime = document.querySelector('.revolution-data');
-const radius = document.querySelector('.radius-data');
-const averageTemp = document.querySelector('.temp-data');
-const planetImage = document.querySelector('.planet-img');
-const planetInternalImage = document.querySelector('.planet-internal');
-const planetSurfaceImage = document.querySelector('.planet-surface');
-const infoTypeSelector = document.querySelectorAll('.info-type-selector');
-const planetInfoLabel = document.querySelectorAll('.planet-info-label');
-const overviewRadioBtn = document.getElementById('overview');
+const navigationButton = document.getElementById('hamburger-btn'); // Navigation hamburger button (checkbox)
+const mainElement = document.querySelector('.main'); // Main part of body
+const planetSelector = document.querySelectorAll('.planet-selector'); // Buttons for select the planet in the navigation (radio)
+const planetNavBulletPoint = document.querySelectorAll('.planet-bullet'); // The colorized bullet points in the navigation
+const planetName = document.querySelector('.planet-name'); // Element name of the selected planet
+const planetDescription = document.querySelector('.info'); // Description of the selected planet
+const descriptionSource = document.querySelector('.wikipedia-link'); // Wikipedia link of the selected planet
+const rotationTime = document.querySelector('.rotation-data'); // Rotation data of the selected planet
+const revolutionTime = document.querySelector('.revolution-data'); // Revolution data of the selected planet
+const radius = document.querySelector('.radius-data'); // Radius data of the selected planet
+const averageTemp = document.querySelector('.temp-data'); // Temperature data of the selected planet
+const planetImage = document.querySelector('.planet-img'); // Planet image element
+const planetInternalImage = document.querySelector('.planet-internal'); // Planet internal image element
+const planetSurfaceImage = document.querySelector('.planet-surface'); // Planet geology image element
+const infoTypeSelector = document.querySelectorAll('.info-type-selector'); // Selector buttons for type of the infos (radio)
+const overviewRadioBtn = document.getElementById('overview'); //  The overview type button of the infos (radio)
+const root = document.documentElement;
 
 let selectedPlanet = 'Mercury';
 let planetDatabase;
 fetchDatas();
 
+// ******* Hide the main part of body *****
+
 navigationButton.addEventListener('input', function () {
-  bodyElement.classList.toggle('hide-overflow');
+  mainElement.classList.add('hide');
 });
+
+// ****** Add click function to the navigation elements
 
 planetSelector.forEach((element) => {
   element.addEventListener('click', function (e) {
+    mainElement.classList.remove('hide');
     overviewRadioBtn.checked = true;
     selectedPlanet = e.currentTarget.value;
     navigationButton.checked = false;
-    bodyElement.classList.remove('hide-overflow');
     fetchDatas();
   });
 });
@@ -41,6 +46,7 @@ function fetchDatas() {
       return response.json();
     })
     .then((data) => {
+      addColorToBullet(data);
       // ** Search the planet **
       for (let i = 0; i < data.length; i++) {
         if (data[i].name === selectedPlanet) {
@@ -61,8 +67,21 @@ function changeDatas(planet) {
   createPlanetColorVariable(planet);
 }
 
+// ** Add colors to the navigation bulletpoints
+
+function addColorToBullet(array) {
+  planetNavBulletPoint.forEach((element) => {
+    for (let i = 0; i < array.length; i++) {
+      if (element.dataset.name === array[i].name) {
+        element.style.color = array[i].color;
+      }
+    }
+  });
+}
+
+// ** Add color to the bottom border to info type buttons
+
 function createPlanetColorVariable(planet) {
-  const root = document.documentElement;
   root.style.setProperty('--planet-color', planet.color);
 }
 
